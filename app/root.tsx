@@ -9,7 +9,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
-// import "./index.css";
+import "./index.css";
 import "./reset.css";
 
 export const links: Route.LinksFunction = () => [

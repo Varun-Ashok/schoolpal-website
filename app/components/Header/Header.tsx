@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const Header = () => {
+import "./Header.css";
+
+function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
@@ -21,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+    <header className="header fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -40,7 +42,7 @@ const Header = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 hover:text-black transition-all duration-300 hover:-translate-y-0.5 font-normal text-sm tracking-wide"
+                className=""
               >
                 {item.name}
               </button>
@@ -75,6 +77,6 @@ const Header = () => {
       </div>
     </header>
   );
-};
+}
 
 export default Header;

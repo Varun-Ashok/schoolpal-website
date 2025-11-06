@@ -50,23 +50,25 @@ h3 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  will-change: border-color;
-  transition: border-color 0.25s;
+  padding-block: 1rem;
+  padding-inline: 2rem;
+  /* font-size: 1.125rem; */
+  /* line-height: 1.75rem; */
+  background-color: #f9f9f9;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  transition-duration: 300ms;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: #1f2937;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+button.scale:hover {
+  transform: scale(1.05);
 }
 
 /* input[type="text"],
@@ -113,9 +115,9 @@ hgroup p:last-of-type {
   a:hover {
     color: #747bff;
   }
-  button,
-  .button {
-    background-color: #f9f9f9;
+  button {
+    color: #ffffff;
+    background-color: #000000;
   }
 }
 
@@ -175,5 +177,24 @@ hgroup p:last-of-type {
 
   to {
     transform: scale(1);
+  }
+}
+
+.btn {
+  padding-block: 1rem;
+  padding-inline: 2rem;
+  /* font-size: 1.125rem; */
+  /* line-height: 1.75rem; */
+  color: #ffffff;
+  background-color: #000000;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  transition-duration: 300ms;
+
+  &:hover {
+    background-color: #1f2937;
+    --transform-scale-x: 1.05;
+    --transform-scale-y: 1.05;
   }
 }

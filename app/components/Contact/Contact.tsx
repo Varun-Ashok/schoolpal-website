@@ -17,13 +17,13 @@ const Contact = () => {
     // Mock form submission - will be replaced with actual API call
     console.log("Form submitted:", formData);
     alert(
-      "Thank you for joining our mission! We'll keep you updated on Schoolpal AI's progress."
+      "Thank you for joining our mission! We'll keep you updated on Schoolpal AI's progress.",
     );
     setFormData({ name: "", email: "", organization: "", message: "" });
   };
 
   const handleChange = (
-    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => {
     setFormData({
       ...formData,

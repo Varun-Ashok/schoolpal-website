@@ -9,10 +9,12 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer/Footer";
 
+import "./home.css";
+
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Schoolpal AI Home Page" },
+    { name: "description", content: "Home page for Schoolpal AI" },
   ];
 }
 
@@ -54,8 +56,8 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              size="lg"
-              className="bg-black text-white hover:bg-gray-800 transition-all duration-300 px-8 py-4 text-lg hover:scale-105"
+              // size="lg"
+              className=""
               onClick={() =>
                 document
                   .querySelector("#contact")
@@ -66,8 +68,8 @@ const Hero = () => {
               <ArrowRight className="ml-2 w-5 h-5" />
             </button>
             <button
-              variant="outline"
-              size="lg"
+              // variant="outline"
+              // size="lg"
               className="border-black text-black hover:bg-black hover:text-white transition-all duration-300 px-8 py-4 text-lg"
               onClick={() =>
                 document
