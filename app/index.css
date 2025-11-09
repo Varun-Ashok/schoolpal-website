@@ -51,7 +51,7 @@ h3 {
 
 button {
   padding-block: 1rem;
-  padding-inline: 2rem;
+  padding-inline: 1.5rem;
   /* font-size: 1.125rem; */
   /* line-height: 1.75rem; */
   background-color: #f9f9f9;
@@ -59,6 +59,7 @@ button {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
   transition-duration: 300ms;
+  border-radius: 16px;
 }
 button:hover {
   background-color: #1f2937;
@@ -105,6 +106,10 @@ hgroup p {
 hgroup p:last-of-type {
   margin-block-start: 0;
   margin-block-end: 1em;
+}
+
+svg.lucide {
+  display: inline-block;
 }
 
 @media (prefers-color-scheme: light) {

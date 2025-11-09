@@ -1,15 +1,15 @@
 header button {
+  color: inherit;
   background: none;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  /* line-height: 1.25rem; */
   font-weight: 400;
-  letter-spacing: 0.025em;
+  /* letter-spacing: 0.025em; */
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
   transition-duration: 300ms;
+  background-color: inherit;
 
   /* :hover {
-    color: #000000;
   } */
 }
