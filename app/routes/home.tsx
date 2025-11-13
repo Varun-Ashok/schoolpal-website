@@ -83,7 +83,7 @@ function Hero({ ids }: { ids: Record<string, string> }) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               // size="lg"
-              className="var-inverted grow"
+              className="var-inverted scale-background-on-hover"
               onPress={() => {
                 const el = document.querySelector(`#${ids["contactId"]}`);
                 if (el !== null) el.scrollIntoView({ behavior: "smooth" });

@@ -55,7 +55,8 @@ h3 {
 
 button,
 .btn {
-  background-color: #1a1a1a;
+  --bg-color: #1a1a1a;
+  background-color: var(--bg-color);
   padding-block: 1rem;
   padding-inline: 1.5rem;
   border-radius: 8px;
@@ -88,13 +89,36 @@ button,
 }
 
 :is(button, .btn).var-inverted {
-  background-color: #f9f9f9;
+  --bg-color: #f9f9f9;
   color: var(--light-text);
 
   /* &:hover {
     color: #ffffff;
     background-color: #000000;
   } */
+}
+
+.scale-background-on-hover {
+  position: relative;
+  isolation: isolate;
+  background: none !important;
+}
+
+.scale-background-on-hover::after {
+  background-color: var(--bg-color);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: transform 250ms;
+  border-radius: inherit;
+}
+
+.scale-background-on-hover:hover::after {
+  transform: scale(1.05);
 }
 
 /* input[type="text"],
@@ -146,11 +170,11 @@ svg.lucide {
     color: #747bff;
   }
   :is(button, .btn) {
-    background-color: #f9f9f9;
+    --bg-color: #f9f9f9;
   }
   :is(button, .btn).var-inverted {
     color: var(--dark-text);
-    background-color: #1a1a1a;
+    --bg-color: #1a1a1a;
   }
 }
 

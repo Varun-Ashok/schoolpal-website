@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@source not inline("grow");
+/* @source not inline("grow"); */
 
 @theme {
   --font-sans:
