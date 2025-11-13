@@ -61,11 +61,7 @@ button,
   padding-inline: 1.5rem;
   border-radius: 8px;
   border: 1px solid transparent;
-  /* font-size: 1.125rem; */
-  /* line-height: 1.75rem; */
   /* transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
-  /* transition-duration: 300ms; */
-  /* transition-property: background-color; */
   transition:
     background-color 250ms,
     border-color 250ms;
@@ -78,7 +74,7 @@ button,
 :is(button, .btn):focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-:is(button, .btn).grow {
+:is(button, .btn).scale-background-on-hover {
   transition:
     background-color 250ms,
     border-color 250ms,
@@ -104,7 +100,17 @@ button,
   background: none;
   border: none;
   &:hover {
+    &:is(button, .btn)::after {
+      border-color: #646cff;
+    }
     border: none;
+  }
+  &:focus,
+  &:focus-visible {
+    &::after {
+      outline: 4px auto -webkit-focus-ring-color;
+    }
+    outline: none;
   }
 }
 
@@ -117,11 +123,17 @@ button,
   right: 0;
   bottom: 0;
   z-index: -1;
-  transition: transform 250ms;
+  transition:
+    transform 250ms,
+    border-color 250ms;
   border-radius: inherit;
 }
 
-.scale-background-on-hover:hover::after {
+:is(button, .btn).scale-background-on-hover::after {
+  border: 1px solid transparent;
+}
+
+.scale-background-on-hover:is(:hover, :focus-visible)::after {
   transform: scale(1.1);
 }
 

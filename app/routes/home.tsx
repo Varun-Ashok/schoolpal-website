@@ -429,7 +429,7 @@ function Pricing() {
           {pricingPlans.map((plan, index) => (
             <div
               key={plan.id}
-              className={`bg-white rounded-lg p-8 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
+              className={`plan bg-white rounded-lg p-8 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
                 plan.popular
                   ? "border-2 border-black"
                   : "border border-gray-200"
@@ -469,13 +469,7 @@ function Pricing() {
                 ))}
               </ul>
 
-              <Button
-                className={`w-full py-3 transition-all duration-300 hover:scale-105 ${
-                  plan.popular
-                    ? "bg-black text-white hover:bg-gray-800"
-                    : "bg-white text-black border border-black hover:bg-black hover:text-white"
-                }`}
-              >
+              <Button className={` ${plan.popular ? "var-inverted" : ""}`}>
                 Get Started
               </Button>
             </div>
@@ -486,9 +480,7 @@ function Pricing() {
           <p className="text-gray-600 mb-4">
             Want to support our mission to democratize education?
           </p>
-          <Button className="text-black hover:text-gray-700 transition-colors font-medium underline">
-            Learn about donations and partnerships
-          </Button>
+          <Button className="">Learn about donations and partnerships</Button>
         </div>
       </div>
     </section>
@@ -578,14 +570,12 @@ export default function Home() {
 
   return (
     <>
-      <Header />
       <Hero ids={ids} />
       <Features />
       <HowItWorks />
       <Pricing />
       <Testimonials />
       <Contact ids={ids} />
-      <Footer />
     </>
   );
 }
