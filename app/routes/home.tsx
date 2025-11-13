@@ -46,7 +46,7 @@ export function meta({}: Route.MetaArgs) {
 
 function Hero({ ids }: { ids: Record<string, string> }) {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-white pt-20">
+    <section className="min-h-screen flex items-center justify-center pt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center">
           {/* Main Headline */}
@@ -83,7 +83,7 @@ function Hero({ ids }: { ids: Record<string, string> }) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               // size="lg"
-              className=""
+              className="var-inverted grow"
               onPress={() => {
                 const el = document.querySelector(`#${ids["contactId"]}`);
                 if (el !== null) el.scrollIntoView({ behavior: "smooth" });
@@ -95,7 +95,8 @@ function Hero({ ids }: { ids: Record<string, string> }) {
             <Button
               // variant="outline"
               // size="lg"
-              className="border-black text-black hover:bg-black hover:text-white transition-all duration-300 px-8 py-4 text-lg"
+              // className="border-black text-black hover:bg-black hover:text-white transition-all duration-300 px-8 py-4 text-lg"
+              className=""
               onPress={() => {
                 const el = document.querySelector(`#${ids["howItWorksId"]}`);
                 if (el !== null) el.scrollIntoView({ behavior: "smooth" });
