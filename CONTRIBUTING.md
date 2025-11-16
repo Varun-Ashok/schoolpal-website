@@ -11,7 +11,7 @@ zero-based. When you commit, **don't forget to update the version** in
 ## Commits
 
 Use [Conventional Commits] for your commit messages. We recommend commit types
-based on [Angulars's rules].
+based on [Angular's rules].
 
 Our (changes) scopes, and what to mark as breaking:
 
