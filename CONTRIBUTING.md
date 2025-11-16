@@ -6,7 +6,7 @@ Thank you for helping empower kid's learning!
 
 We use [CalVer] for versioning; format is `YY.MM.DD.MINOR`, where `MINOR` is
 zero-based. When you commit, **don't forget to update the version** in
-`package.json`.
+`package.json`. Remember, date is in UTC.
 
 ## Commits
 
