@@ -32,21 +32,18 @@ import {
   testimonials,
 } from "@/mock/data";
 
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
-
 import "./home.css";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Schoolpal AI Home Page" },
+    { title: "Schoolpal AI" },
     { name: "description", content: "Home page for Schoolpal AI" },
   ];
 }
 
 function Hero({ ids }: { ids: Record<string, string> }) {
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20">
+    <section id="hero">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center">
           {/* Main Headline */}
@@ -272,14 +269,10 @@ function Contact({ ids }: { ids: Record<string, string> }) {
                 />
               </div>
 
-              <Button
-                type="submit"
-                className="w-full bg-black text-white hover:bg-gray-800 transition-all duration-300 hover:scale-105 py-3"
-              >
+              <Button type="submit" className="var-inverted">
                 <Send className="w-4 h-4 mr-2" />
                 Join Our Community
               </Button>
-              <Button></Button>
             </form>
           </div>
         </div>
@@ -401,9 +394,7 @@ function HowItWorks() {
               Experience how Schoolpal AI transforms traditional studying into
               engaging, interactive learning sessions.
             </p>
-            <Button className="bg-black text-white px-8 py-3 rounded hover:bg-gray-800 transition-all duration-300 hover:scale-105">
-              Request a Demo
-            </Button>
+            <Button className="var-inverted">Request a Demo</Button>
           </div>
         </div>
       </div>
@@ -569,13 +560,13 @@ export default function Home() {
   );
 
   return (
-    <>
+    <main>
       <Hero ids={ids} />
       <Features />
       <HowItWorks />
       <Pricing />
       <Testimonials />
       <Contact ids={ids} />
-    </>
+    </main>
   );
 }

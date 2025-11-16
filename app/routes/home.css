@@ -1,3 +1,11 @@
+#hero {
+  display: flex;
+  /* padding-top: 5rem; */
+  justify-content: center;
+  align-items: center;
+  /* min-height: 100vh; */
+}
+
 .plan {
   button {
     width: 100%;

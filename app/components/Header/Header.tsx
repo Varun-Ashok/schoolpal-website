@@ -23,7 +23,7 @@ function Header() {
   };
 
   return (
-    <header className="header fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+    <header className="header">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
