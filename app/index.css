@@ -45,6 +45,10 @@ p {
 }
 h1 {
   margin-block: 0.67em;
+
+  &.title {
+    font-size: 4em;
+  }
 }
 h2 {
   margin-block: 0.83em;
@@ -166,6 +170,7 @@ hgroup h1 {
 hgroup p {
   margin-block: 0;
   /* font-weight: bold; */
+  font-size: 1.25em;
 }
 
 hgroup p:last-of-type {
@@ -175,6 +180,8 @@ hgroup p:last-of-type {
 
 svg.lucide {
   display: inline-block;
+  vertical-align: middle;
+  margin-inline: 0.25em;
 }
 
 @media (prefers-color-scheme: light) {
@@ -189,7 +196,7 @@ svg.lucide {
     --bg-color: #f9f9f9;
   }
   :is(button, .btn).var-inverted {
-    color: var(--dark-text);
+    color: rgb(from var(--dark-text) r g b / 1);
     --bg-color: #1a1a1a;
   }
 }

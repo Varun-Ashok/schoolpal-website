@@ -46,19 +46,25 @@ function Hero({ ids }: { ids: Record<string, string> }) {
     <section id="hero">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center">
-          {/* Main Headline */}
-          <h1 className="text-6xl md:text-8xl font-light text-black mb-8 tracking-tight leading-none">
-            AI-Powered
-            {/* <br /> */}
-            <span className="block text-gray-600">Offline Tutor</span>
-          </h1>
+          <hgroup>
+            {/* Main Headline */}
+            <h1 className="title text-6xl md:text-8xl font-light text-black mb-8 tracking-tight leading-none">
+              AI-Powered
+              {/* <br /> */}
+              <span className="block text-gray-600">Offline Tutor</span>
+            </h1>
 
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto font-light leading-relaxed">
-            Free AI-powered conversation-based learning for K-12 students. Works
-            offline, stays focused on your curriculum, and helps build strong
-            study skills for everyone.
-          </p>
+            {/* Subtitle */}
+            <p
+              className={
+                /*"text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto font-light leading-relaxed"*/ ""
+              }
+            >
+              Free AI-powered conversation-based learning for K-12 students.
+              Works offline, stays focused on your curriculum, and helps build
+              strong study skills for everyone.
+            </p>
+          </hgroup>
 
           {/* Key Benefits */}
           <div className="flex flex-wrap justify-center gap-8 mb-16">
