@@ -2,11 +2,13 @@
   "name": "schoolpal-ai",
   "private": true,
   "type": "module",
+  "version": "24.11.1.0",
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "prepare": "husky"
   },
   "dependencies": {
     "@react-aria/example-theme": "^1.0.5",
@@ -25,11 +27,16 @@
     "@types/node": "^22.19.0",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
     "new-component": "^6.0.0",
     "prettier": "3.6.2",
     "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3",
     "vite": "^7.2.2",
     "vite-tsconfig-paths": "^5.1.4"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
