@@ -36,6 +36,9 @@ If you think your commit has multiple commit _types_, please try to split them
 up into several commits, and if you try your hardest but you _just can't_, put
 the most prominent one at the top and list the rest in the body.
 
+For a work-in-progress commit, use commit type `wip:` and describe what has been
+done since the last commit.
+
 [Conventional Commits]: https://www.conventionalcommits.org/en/v1.0.0/
 [Angular's rules]:
   https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines
