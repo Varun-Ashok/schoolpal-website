@@ -25,8 +25,10 @@
   /* tw gray-800 */
   --light-text: var(--tw-gray-800);
   --text: var(--dark-text);
-  --text-soft: var(--tw-gray-500);
+  --dark-text-soft: var(--tw-gray-400);
+  --light-text-soft: var(--tw-gray-600);
   color: var(--text);
+  --text-soft: var(--dark-text-soft);
 
   /* tw gray-800 */
   --dark-bg: var(--tw-gray-800);
@@ -85,8 +87,8 @@ button,
   border: 1px solid transparent;
   /* transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
   transition:
-    background-color 250ms,
-    border-color 250ms;
+    background-color 300ms,
+    border-color 300ms;
 }
 :is(button, .btn):hover {
   /* background-color: #1f2937; */
@@ -102,11 +104,10 @@ button,
   color: var(--light-text);
 }
 
-:is(button, .btn).scale-background-on-hover {
+:is(button, .btn):not(.scale-background-on-hover) {
   transition:
-    background-color 250ms,
-    border-color 250ms,
-    transform 250ms;
+    background-color 300ms,
+    border-color 300ms;
 }
 
 .scale-background-on-hover {
@@ -139,9 +140,10 @@ button,
   bottom: 0;
   z-index: -1;
   transition:
-    transform 250ms,
-    border-color 250ms;
+    transform 300ms,
+    border-color 300ms;
   border-radius: inherit;
+  will-change: transform, border-color;
 }
 
 :is(button, .btn).scale-background-on-hover::after {
@@ -199,6 +201,7 @@ svg.lucide {
   :root {
     --text: var(--light-text);
     --background-color: var(--light-bg);
+    --text-soft: var(--light-text-soft);
   }
   a:hover {
     color: #747bff;

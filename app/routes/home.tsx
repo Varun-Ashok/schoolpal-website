@@ -43,10 +43,10 @@ export function meta({}: Route.MetaArgs) {
 
 function Hero({ ids }: { ids: Record<string, string> }) {
   return (
-    <section id="hero">
+    <section id="hero" aria-labelledby="site-name">
       <hgroup>
         {/* Main Headline */}
-        <h1 className="title">
+        <h1 id="site-name" className="title">
           AI-Powered
           {/* <br /> */}
           <span style={{ display: "block", color: "var(--text-soft)" }}>
@@ -79,9 +79,8 @@ function Hero({ ids }: { ids: Record<string, string> }) {
       </div>
 
       {/* CTA Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <div className="cta-buttons">
         <Button
-          // size="lg"
           className="var-inverted scale-background-on-hover"
           onPress={() => {
             const el = document.querySelector(`#${ids["contactId"]}`);
@@ -89,13 +88,9 @@ function Hero({ ids }: { ids: Record<string, string> }) {
           }}
         >
           Get Started
-          <ArrowRight className="ml-2 w-5 h-5" />
+          <ArrowRight style={{ marginLeft: "0.5rem" }} />
         </Button>
         <Button
-          // variant="outline"
-          // size="lg"
-          // className="border-black hover:bg-black hover:text-white transition-all duration-300 px-8 py-4 text-lg"
-          // className=""
           onPress={() => {
             const el = document.querySelector(`#${ids["howItWorksId"]}`);
             if (el !== null) el.scrollIntoView({ behavior: "smooth" });
@@ -106,14 +101,13 @@ function Hero({ ids }: { ids: Record<string, string> }) {
       </div>
 
       {/* Free Access Highlight */}
-      <div className="mt-16 text-center">
-        <p className="text-gray-500 text-sm mb-2">100% Free for All Students</p>
-        <div className="text-4xl font-light">
-          No Cost<span className="text-lg text-gray-500"> • Ever</span>
+      <div className="free-access">
+        <p>100% Free for All Students</p>
+        <div>
+          <span style={{ fontSize: "2rem" }}>No Cost</span>
+          <span> • Ever</span>
         </div>
-        <p className="text-sm text-gray-600 mt-2">
-          Non-profit initiative to democratize education
-        </p>
+        <p>Non-profit initiative to democratize education</p>
       </div>
     </section>
   );

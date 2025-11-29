@@ -23,6 +23,23 @@ main.main-home > section#hero {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   max-width: 80rem;
+
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+
+    @media (min-width: 640px) {
+      flex-direction: row;
+    }
+  }
+
+  .lucide {
+    width: 0.8lh;
+    height: 0.8lh;
+    vertical-align: middle;
+  }
 }
 
 main.main-home .benefits {
@@ -36,13 +53,22 @@ main.main-home .benefits {
   & > div {
     display: flex;
     align-items: center;
+    gap: 0.25rem;
     /* color: #374151; */
   }
+}
 
-  .lucide {
-    width: 1.25rem;
-    height: 1.25rem;
-    vertical-align: middle;
+section#hero {
+  .free-access {
+    margin-top: 2rem;
+    color: var(--text-soft);
+
+    & > p:first-of-type {
+      margin-bottom: 0.5rem;
+    }
+    & > p:last-of-type {
+      margin-top: 0.5rem;
+    }
   }
 }
 
