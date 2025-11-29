@@ -2,7 +2,7 @@
   "name": "schoolpal-ai",
   "private": true,
   "type": "module",
-  "version": "24.11.16.2",
+  "version": "24.11.29.0",
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
