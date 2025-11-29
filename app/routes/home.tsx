@@ -44,83 +44,128 @@ export function meta({}: Route.MetaArgs) {
 function Hero({ ids }: { ids: Record<string, string> }) {
   return (
     <section id="hero">
+      <hgroup>
+        {/* Main Headline */}
+        <h1 className="title">
+          AI-Powered
+          {/* <br /> */}
+          <span style={{ display: "block", color: "var(--text-soft)" }}>
+            Offline Tutor
+          </span>
+        </h1>
+
+        {/* Subtitle */}
+        <p>
+          Free AI-powered conversation-based learning for K-12 students. Works
+          offline, stays focused on your curriculum, and helps build strong
+          study skills for everyone.
+        </p>
+      </hgroup>
+
+      {/* Key Benefits */}
+      <div className="benefits">
+        <div>
+          <Wifi />
+          <span>Works Offline</span>
+        </div>
+        <div>
+          <BookOpen />
+          <span>Curriculum Focused</span>
+        </div>
+        <div>
+          <Shield />
+          <span>Safe & Controlled</span>
+        </div>
+      </div>
+
+      {/* CTA Buttons */}
+      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button
+          // size="lg"
+          className="var-inverted scale-background-on-hover"
+          onPress={() => {
+            const el = document.querySelector(`#${ids["contactId"]}`);
+            if (el !== null) el.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          Get Started
+          <ArrowRight className="ml-2 w-5 h-5" />
+        </Button>
+        <Button
+          // variant="outline"
+          // size="lg"
+          // className="border-black hover:bg-black hover:text-white transition-all duration-300 px-8 py-4 text-lg"
+          // className=""
+          onPress={() => {
+            const el = document.querySelector(`#${ids["howItWorksId"]}`);
+            if (el !== null) el.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          See How It Works
+        </Button>
+      </div>
+
+      {/* Free Access Highlight */}
+      <div className="mt-16 text-center">
+        <p className="text-gray-500 text-sm mb-2">100% Free for All Students</p>
+        <div className="text-4xl font-light">
+          No Cost<span className="text-lg text-gray-500"> • Ever</span>
+        </div>
+        <p className="text-sm text-gray-600 mt-2">
+          Non-profit initiative to democratize education
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function Features() {
+  const iconMap = useMemo(
+    () => ({
+      Wifi,
+      BookOpen,
+      Shield,
+      MessageCircle,
+      Heart,
+      FileText,
+    }),
+    [],
+  );
+
+  return (
+    <section id="features">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center">
-          <hgroup>
-            {/* Main Headline */}
-            <h1 className="title text-6xl md:text-8xl font-light text-black mb-8 tracking-tight leading-none">
-              AI-Powered
-              {/* <br /> */}
-              <span className="block text-gray-600">Offline Tutor</span>
-            </h1>
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">
+            Why Choose Schoolpal AI?
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
+            Designed specifically for K-12 education with features that matter
+            to students, parents, and teachers.
+          </p>
+        </div>
 
-            {/* Subtitle */}
-            <p
-              className={
-                /*"text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto font-light leading-relaxed"*/ ""
-              }
-            >
-              Free AI-powered conversation-based learning for K-12 students.
-              Works offline, stays focused on your curriculum, and helps build
-              strong study skills for everyone.
-            </p>
-          </hgroup>
-
-          {/* Key Benefits */}
-          <div className="flex flex-wrap justify-center gap-8 mb-16">
-            <div className="flex items-center space-x-2 text-gray-700">
-              <Wifi className="w-5 h-5" />
-              <span className="font-normal">Works Offline</span>
-            </div>
-            <div className="flex items-center space-x-2 text-gray-700">
-              <BookOpen className="w-5 h-5" />
-              <span className="font-normal">Curriculum Focused</span>
-            </div>
-            <div className="flex items-center space-x-2 text-gray-700">
-              <Shield className="w-5 h-5" />
-              <span className="font-normal">Safe & Controlled</span>
-            </div>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              // size="lg"
-              className="var-inverted scale-background-on-hover"
-              onPress={() => {
-                const el = document.querySelector(`#${ids["contactId"]}`);
-                if (el !== null) el.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              Get Started
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button
-              // variant="outline"
-              // size="lg"
-              // className="border-black text-black hover:bg-black hover:text-white transition-all duration-300 px-8 py-4 text-lg"
-              className=""
-              onPress={() => {
-                const el = document.querySelector(`#${ids["howItWorksId"]}`);
-                if (el !== null) el.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              See How It Works
-            </Button>
-          </div>
-
-          {/* Free Access Highlight */}
-          <div className="mt-16 text-center">
-            <p className="text-gray-500 text-sm mb-2">
-              100% Free for All Students
-            </p>
-            <div className="text-4xl font-light text-black">
-              No Cost<span className="text-lg text-gray-500"> • Ever</span>
-            </div>
-            <p className="text-sm text-gray-600 mt-2">
-              Non-profit initiative to democratize education
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => {
+            const IconComponent = iconMap[feature.icon];
+            return (
+              <div
+                key={feature.id}
+                className="bg-white p-8 rounded-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-black transition-colors duration-300">
+                  <IconComponent className="w-6 h-6 text-gray-600 group-hover:text-white transition-colors duration-300" />
+                </div>
+                <h3 className="text-xl font-normal mb-4 tracking-wide">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -155,10 +200,10 @@ function Contact({ ids }: { ids: Record<string, string> }) {
   };
 
   return (
-    <section id={ids["contactId"]} className="py-24 bg-gray-50">
+    <section id={ids["contactId"]} className="bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-light text-black mb-6 tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">
             Join Our Community
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
@@ -170,9 +215,7 @@ function Contact({ ids }: { ids: Record<string, string> }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Information */}
           <div>
-            <h3 className="text-2xl font-light text-black mb-8">
-              Join Our Mission
-            </h3>
+            <h3 className="text-2xl font-light mb-8">Join Our Mission</h3>
 
             <div className="space-y-6">
               <p className="text-gray-600 leading-relaxed">
@@ -184,32 +227,30 @@ function Contact({ ids }: { ids: Record<string, string> }) {
             </div>
 
             <div className="mt-12">
-              <h4 className="font-medium text-black mb-4">Perfect for:</h4>
+              <h4 className="font-medium mb-4">Perfect for:</h4>
               <ul className="space-y-2 text-gray-600">
-                <li>• Teachers looking to enhance classroom learning</li>
-                <li>• Parents wanting better study support at home</li>
-                <li>• Schools seeking free AI education tools</li>
-                <li>• NGOs working with underprivileged students</li>
-                <li>• Organizations supporting educational equity</li>
+                <li>Teachers looking to enhance classroom learning</li>
+                <li>Parents wanting better study support at home</li>
+                <li>Schools seeking free AI education tools</li>
+                <li>NGOs working with underprivileged students</li>
+                <li>Organizations supporting educational equity</li>
               </ul>
             </div>
 
             <div className="mt-12">
-              <h4 className="font-medium text-black mb-4">
-                How to Get Involved:
-              </h4>
+              <h4 className="font-medium mb-4">How to Get Involved:</h4>
               <ul className="space-y-2 text-gray-600">
-                <li>• Download and try Schoolpal AI in your classroom</li>
-                <li>• Share feedback to help us improve</li>
-                <li>• Spread the word about free AI education</li>
-                <li>• Partner with us for wider implementation</li>
+                <li>Download and try Schoolpal AI in your classroom</li>
+                <li>Share feedback to help us improve</li>
+                <li>Spread the word about free AI education</li>
+                <li>Partner with us for wider implementation</li>
               </ul>
             </div>
           </div>
 
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-light text-black mb-6">
+            <h3 className="text-2xl font-light mb-6">
               Get Updates & Resources
             </h3>
 
@@ -287,59 +328,6 @@ function Contact({ ids }: { ids: Record<string, string> }) {
   );
 }
 
-function Features() {
-  const iconMap = useMemo(
-    () => ({
-      Wifi,
-      BookOpen,
-      Shield,
-      MessageCircle,
-      Heart,
-      FileText,
-    }),
-    [],
-  );
-
-  return (
-    <section id="features" className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-light text-black mb-6 tracking-tight">
-            Why Choose Schoolpal AI?
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-            Designed specifically for K-12 education with features that matter
-            to students, parents, and teachers.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => {
-            const IconComponent = iconMap[feature.icon];
-            return (
-              <div
-                key={feature.id}
-                className="bg-white p-8 rounded-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-black transition-colors duration-300">
-                  <IconComponent className="w-6 h-6 text-gray-600 group-hover:text-white transition-colors duration-300" />
-                </div>
-                <h3 className="text-xl font-normal text-black mb-4 tracking-wide">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function HowItWorks() {
   const iconMap = useMemo(
     () => ({
@@ -352,10 +340,10 @@ function HowItWorks() {
   );
 
   return (
-    <section id="how-it-works" className="py-24 bg-white">
+    <section id="how-it-works" className="">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-light text-black mb-6 tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">
             How It Works
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
@@ -380,7 +368,7 @@ function HowItWorks() {
                     <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gray-200 -translate-x-8"></div>
                   )}
                 </div>
-                <h3 className="text-xl font-normal text-black mb-4 tracking-wide">
+                <h3 className="text-xl font-normal mb-4 tracking-wide">
                   {step.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -393,7 +381,7 @@ function HowItWorks() {
 
         <div className="text-center mt-16">
           <div className="bg-gray-50 p-8 rounded-lg max-w-4xl mx-auto">
-            <h3 className="text-2xl font-light text-black mb-4">
+            <h3 className="text-2xl font-light mb-4">
               Ready to See It in Action?
             </h3>
             <p className="text-gray-600 mb-6">
@@ -410,10 +398,10 @@ function HowItWorks() {
 
 function Pricing() {
   return (
-    <section id="pricing" className="py-24 bg-gray-50">
+    <section id="pricing" className="bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-light text-black mb-6 tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">
             Free for Everyone
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
@@ -441,13 +429,11 @@ function Pricing() {
               )}
 
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-normal text-black mb-4 tracking-wide">
+                <h3 className="text-2xl font-normal mb-4 tracking-wide">
                   {plan.name}
                 </h3>
                 <div className="flex items-baseline justify-center">
-                  <span className="text-5xl font-light text-black">
-                    {plan.price}
-                  </span>
+                  <span className="text-5xl font-light">{plan.price}</span>
                   {plan.price !== "Free" && (
                     <span className="text-gray-500 ml-2">/{plan.period}</span>
                   )}
@@ -460,7 +446,7 @@ function Pricing() {
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-black mt-0.5 flex-shrink-0" />
+                    <Check className="w-5 h-5 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-600">{feature}</span>
                   </li>
                 ))}
@@ -486,10 +472,10 @@ function Pricing() {
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-24 bg-white">
+    <section id="testimonials" className="">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-light text-black mb-6 tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">
             What Students & Teachers Say
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
@@ -521,9 +507,7 @@ const Testimonials = () => {
               </div>
 
               <div className="border-t border-gray-200 pt-4">
-                <h4 className="font-medium text-black mb-1">
-                  {testimonial.name}
-                </h4>
+                <h4 className="font-medium mb-1">{testimonial.name}</h4>
                 <p className="text-sm text-gray-600 mb-1">{testimonial.role}</p>
                 <p className="text-xs text-gray-500">{testimonial.location}</p>
               </div>
@@ -533,7 +517,7 @@ const Testimonials = () => {
 
         <div className="text-center mt-16">
           <div className="bg-gray-50 p-8 rounded-lg max-w-4xl mx-auto">
-            <h3 className="text-2xl font-light text-black mb-4">
+            <h3 className="text-2xl font-light mb-4">
               Join Our Mission for Educational Equity
             </h3>
             <p className="text-gray-600 mb-6">
@@ -566,7 +550,7 @@ export default function Home() {
   );
 
   return (
-    <main>
+    <main className="main-home">
       <Hero ids={ids} />
       <Features />
       <HowItWorks />

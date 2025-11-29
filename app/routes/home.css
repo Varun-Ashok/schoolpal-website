@@ -1,13 +1,59 @@
-#hero {
-  display: flex;
+main.main-home {
+  --alt-bg: var(--dark-surface);
+}
+
+main.main-home > section:nth-of-type(even) {
+  background-color: var(--alt-bg);
+}
+
+main.main-home > section {
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+}
+
+/* Hero */
+main.main-home > section#hero {
+  padding: 0;
+  /* display: flex; */
   /* padding-top: 5rem; */
   justify-content: center;
   align-items: center;
   /* min-height: 100vh; */
+  text-align: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  max-width: 80rem;
+}
+
+main.main-home .benefits {
+  display: flex;
+  /* margin-bottom: 4rem; */
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  /* color: #374151; */
+
+  & > div {
+    display: flex;
+    align-items: center;
+    /* color: #374151; */
+  }
+
+  .lucide {
+    width: 1.25rem;
+    height: 1.25rem;
+    vertical-align: middle;
+  }
 }
 
 .plan {
   button {
     width: 100%;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  main.main-home {
+    --alt-bg: var(--light-surface);
   }
 }
