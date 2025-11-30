@@ -1,9 +1,18 @@
 main.main-home {
-  --alt-bg: var(--dark-surface);
+  --alt-bg: var(--surface);
 }
 
 main.main-home > section:nth-of-type(even) {
   background-color: var(--alt-bg);
+  /* background-color: var(--background-color); */
+  /* --surface: var(--background-color); */
+
+  /* & > * {
+    --surface: light-dark(
+      var(--light-background-color),
+      var(--dark-background-color)
+    );
+  } */
 }
 
 main.main-home > section {
@@ -75,14 +84,70 @@ main.main-home .benefits {
   }
 }
 
+.features {
+  margin-block: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+
+  .feat-icon-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0.5rem;
+    width: 3rem;
+    height: 3rem;
+
+    background-color: var(--surface);
+    color: var(--text);
+
+    transition-property: color, background-color;
+    transition-duration: 300ms;
+    will-change: color, background-color;
+
+    .lucide {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+  & .tile:hover .feat-icon-wrap {
+    background-color: var(--inv-background-color);
+    color: var(--inv-text);
+  }
+
+  @media (min-width: 48rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (min-width: 64rem) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.features .tile {
+  background-color: var(--background-color);
+  transition:
+    box-shadow 500ms,
+    transform 500ms;
+  will-change: box-shadow, transform;
+
+  &:hover {
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-0.5rem);
+  }
+}
+
 .plan {
   button {
     width: 100%;
   }
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   main.main-home {
     --alt-bg: var(--light-surface);
   }
-}
+} */
