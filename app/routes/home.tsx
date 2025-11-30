@@ -101,7 +101,7 @@ function Hero({ ids }: { ids: Record<string, string> }) {
       </div>
 
       {/* Free Access Highlight */}
-      <div className="free-access">
+      <div className="home-section-wrap">
         <p>100% Free for All Students</p>
         <div>
           <span style={{ fontSize: "2rem" }}>No Cost</span>
@@ -190,7 +190,7 @@ function HowItWorks() {
                 </div>
                 <div className="step-num">{step.id}</div>
                 {index < howItWorksSteps.length - 1 && (
-                  <div className="step-connect"></div>
+                  <div className="step-connect" />
                 )}
               </div>
               <h3>{step.title}</h3>
@@ -200,7 +200,7 @@ function HowItWorks() {
         })}
       </ol>
 
-      <div className="ready-to-see">
+      <div className="home-section-wrap">
         <h3>Ready to See It in Action?</h3>
         <p>
           Experience how Schoolpal AI transforms traditional studying into
@@ -214,69 +214,63 @@ function HowItWorks() {
 
 function Pricing() {
   return (
-    <section id="pricing" className="bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2>Free for Everyone</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-            Education should be accessible to all. That's why Schoolpal AI is
-            completely free, forever.
-          </p>
-        </div>
+    <section id="pricing" aria-labelledby="pricing-heading">
+      <hgroup>
+        <h2 id="pricing-heading">Pricing</h2>
+        <p>Free for Everyone</p>
+      </hgroup>
+      <p style={{ textAlign: "center" }}>
+        Education should be accessible to all. That's why Schoolpal AI is
+        completely free, forever.
+      </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {pricingPlans.map((plan, index) => (
-            <div
-              key={plan.id}
-              className={`plan bg-white rounded-lg p-8 relative transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
-                plan.popular
-                  ? "border-2 border-black"
-                  : "border border-gray-200"
-              }`}
-            >
-              {plan.popular && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-black text-white px-4 py-1 rounded-full text-sm font-medium">
-                    Most Popular
-                  </span>
-                </div>
-              )}
+      <ul className="pricing-plans">
+        {pricingPlans.map((plan, index) => (
+          <li
+            key={plan.id}
+            className={`plan card ${plan.popular ? "popular" : ""}`}
+          >
+            {plan.popular && (
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <span className="bg-black text-white px-4 py-1 rounded-full text-sm font-medium">
+                  Most Popular
+                </span>
+              </div>
+            )}
 
-              <div className="text-center mb-8">
+            <div className="plan-content">
+              <div className="plan-info">
                 <h3>{plan.name}</h3>
-                <div className="flex items-baseline justify-center">
-                  <span className="text-5xl font-light">{plan.price}</span>
-                  {plan.price !== "Free" && (
-                    <span className="text-gray-500 ml-2">/{plan.period}</span>
-                  )}
-                  {plan.price === "Free" && (
-                    <span className="text-gray-500 ml-2">• {plan.period}</span>
-                  )}
+                <div>
+                  <span style={{ fontSize: "2.5rem" }}>{plan.price}</span>
+                  <span
+                    style={{ color: "var(--text-soft)", marginLeft: "0.5rem" }}
+                  >
+                    {plan.price === "Free" ? "\u{2022}" : "/"} {plan.period}
+                  </span>
                 </div>
               </div>
 
-              <ul className="space-y-4 mb-8">
+              <ul className="plan-feats">
                 {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-600">{feature}</span>
+                  <li key={featureIndex}>
+                    <Check size="1.25rem" />
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
-
-              <Button className={` ${plan.popular ? "var-inverted" : ""}`}>
-                Get Started
-              </Button>
             </div>
-          ))}
-        </div>
 
-        <div className="text-center mt-16">
-          <p className="text-gray-600 mb-4">
-            Want to support our mission to democratize education?
-          </p>
-          <Button className="">Learn about donations and partnerships</Button>
-        </div>
+            <Button className={` ${plan.popular ? "inverted" : ""}`}>
+              Get Started
+            </Button>
+          </li>
+        ))}
+      </ul>
+
+      <div className="home-section-wrap">
+        <p>Want to support our mission to democratize education?</p>
+        <Button>Learn about donations and partnerships</Button>
       </div>
     </section>
   );
@@ -485,7 +479,7 @@ function Contact({ ids }: { ids: Record<string, string> }) {
                 />
               </div>
 
-              <Button type="submit" className="var-inverted">
+              <Button type="submit" className="inverted">
                 <Send className="w-4 h-4 mr-2" />
                 Join Our Community
               </Button>

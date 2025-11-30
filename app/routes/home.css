@@ -14,6 +14,19 @@ main.main-home > section {
   }
 }
 
+.home-section-wrap {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text-soft);
+
+  & > p:first-of-type {
+    margin-bottom: 0.5rem;
+  }
+  & > p:last-of-type {
+    margin-top: 0.5rem;
+  }
+}
+
 /* Hero */
 main.main-home > section#hero {
   padding: 0;
@@ -39,18 +52,6 @@ main.main-home > section#hero {
     width: 0.8lh;
     height: 0.8lh;
     vertical-align: middle;
-  }
-
-  .free-access {
-    margin-top: 2rem;
-    color: var(--text-soft);
-
-    & > p:first-of-type {
-      margin-bottom: 0.5rem;
-    }
-    & > p:last-of-type {
-      margin-top: 0.5rem;
-    }
   }
 }
 
@@ -199,22 +200,84 @@ ol.hiw-steps > li {
   }
 }
 
-.ready-to-see {
-  text-align: center;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  background-color: var(--surface);
-  max-width: 56rem;
-  margin: 2rem auto 0;
+ul.pricing-plans {
+  list-style: none;
+  padding: 0;
+  width: 100%;
 
-  & > p {
-    margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+  max-width: 72rem;
+  margin: 2rem auto;
+
+  @media (min-width: 48rem) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-.plan {
+li.plan {
+  position: relative;
+  will-change: translate, box-shadow;
+  transition-property: translate, box-shadow;
+  transition-duration: 300ms;
+  border-style: solid;
+
+  &:hover {
+    translate: 0 -0.5rem;
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  h3 {
+    margin-top: 1rem;
+  }
+
   button {
     width: 100%;
+    grid-area: action;
+  }
+
+  .plan-content {
+    grid-area: content;
+
+    .plan-info {
+      text-align: center;
+      margin-bottom: 1rem;
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+      }
+    }
+
+    ul.plan-feats {
+      margin-bottom: 2rem;
+      margin-top: 1rem;
+      padding-inline-start: 20px; /* half of default */
+
+      li {
+        display: flex;
+        margin-left: 0.75rem;
+        align-items: flex-start;
+
+        svg.lucide {
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+  &.popular {
+    border-width: 2px;
+    border-color: light-dark(var(--tw-black), var(--tw-white));
+  }
+
+  &:not(.popular) {
+    border-width: 1px;
+    border-color: var(--text-soft);
   }
 }
 
