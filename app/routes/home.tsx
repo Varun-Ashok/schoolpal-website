@@ -128,39 +128,35 @@ function Features() {
 
   return (
     <section id="features">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">
-            Why Choose Schoolpal AI?
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-            Designed specifically for K-12 education with features that matter
-            to students, parents, and teachers.
-          </p>
-        </div>
+      <hgroup>
+        <h2>Why Choose Schoolpal AI?</h2>
+        <p>
+          Designed specifically for K-12 education with features that matter to
+          students, parents, and teachers.
+        </p>
+      </hgroup>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => {
-            const IconComponent = iconMap[feature.icon];
-            return (
-              <div
-                key={feature.id}
-                className="bg-white p-8 rounded-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-black transition-colors duration-300">
-                  <IconComponent className="w-6 h-6 text-gray-600 group-hover:text-white transition-colors duration-300" />
-                </div>
-                <h3 className="text-xl font-normal mb-4 tracking-wide">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
-                </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((feature, index) => {
+          const IconComponent = iconMap[feature.icon];
+          return (
+            <div
+              key={feature.id}
+              className="bg-white p-8 rounded-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-black transition-colors duration-300">
+                <IconComponent className="w-6 h-6 text-gray-600 group-hover:text-white transition-colors duration-300" />
               </div>
-            );
-          })}
-        </div>
+              <h3 className="text-xl font-normal mb-4 tracking-wide">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {feature.description}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
@@ -197,10 +193,8 @@ function Contact({ ids }: { ids: Record<string, string> }) {
     <section id={ids["contactId"]} className="bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">
-            Join Our Community
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
+          <h2>Join Our Community</h2>
+          <p>
             Be part of the movement to make quality AI education accessible to
             every student, everywhere.
           </p>
@@ -209,7 +203,7 @@ function Contact({ ids }: { ids: Record<string, string> }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Information */}
           <div>
-            <h3 className="text-2xl font-light mb-8">Join Our Mission</h3>
+            <h3 className="">Join Our Mission</h3>
 
             <div className="space-y-6">
               <p className="text-gray-600 leading-relaxed">
@@ -221,7 +215,7 @@ function Contact({ ids }: { ids: Record<string, string> }) {
             </div>
 
             <div className="mt-12">
-              <h4 className="font-medium mb-4">Perfect for:</h4>
+              <h4>Perfect for:</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>Teachers looking to enhance classroom learning</li>
                 <li>Parents wanting better study support at home</li>
@@ -232,7 +226,7 @@ function Contact({ ids }: { ids: Record<string, string> }) {
             </div>
 
             <div className="mt-12">
-              <h4 className="font-medium mb-4">How to Get Involved:</h4>
+              <h4>How to Get Involved:</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>Download and try Schoolpal AI in your classroom</li>
                 <li>Share feedback to help us improve</li>
@@ -244,9 +238,7 @@ function Contact({ ids }: { ids: Record<string, string> }) {
 
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-light mb-6">
-              Get Updates & Resources
-            </h3>
+            <h3>Get Updates & Resources</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -337,9 +329,7 @@ function HowItWorks() {
     <section id="how-it-works" className="">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">
-            How It Works
-          </h2>
+          <h2>How It Works</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
             Getting started with Schoolpal AI is simple. Four easy steps to
             transform your learning experience.
@@ -362,9 +352,7 @@ function HowItWorks() {
                     <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gray-200 -translate-x-8"></div>
                   )}
                 </div>
-                <h3 className="text-xl font-normal mb-4 tracking-wide">
-                  {step.title}
-                </h3>
+                <h3>{step.title}</h3>
                 <p className="text-gray-600 leading-relaxed">
                   {step.description}
                 </p>
@@ -375,9 +363,7 @@ function HowItWorks() {
 
         <div className="text-center mt-16">
           <div className="bg-gray-50 p-8 rounded-lg max-w-4xl mx-auto">
-            <h3 className="text-2xl font-light mb-4">
-              Ready to See It in Action?
-            </h3>
+            <h3>Ready to See It in Action?</h3>
             <p className="text-gray-600 mb-6">
               Experience how Schoolpal AI transforms traditional studying into
               engaging, interactive learning sessions.
@@ -395,9 +381,7 @@ function Pricing() {
     <section id="pricing" className="bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">
-            Free for Everyone
-          </h2>
+          <h2>Free for Everyone</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
             Education should be accessible to all. That's why Schoolpal AI is
             completely free, forever.
@@ -423,9 +407,7 @@ function Pricing() {
               )}
 
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-normal mb-4 tracking-wide">
-                  {plan.name}
-                </h3>
+                <h3>{plan.name}</h3>
                 <div className="flex items-baseline justify-center">
                   <span className="text-5xl font-light">{plan.price}</span>
                   {plan.price !== "Free" && (
@@ -469,9 +451,7 @@ const Testimonials = () => {
     <section id="testimonials" className="">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">
-            What Students & Teachers Say
-          </h2>
+          <h2>What Students & Teachers Say</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
             Real feedback from students, teachers, and parents who are already
             using Schoolpal AI.
@@ -501,7 +481,7 @@ const Testimonials = () => {
               </div>
 
               <div className="border-t border-gray-200 pt-4">
-                <h4 className="font-medium mb-1">{testimonial.name}</h4>
+                <p>{testimonial.name}</p>
                 <p className="text-sm text-gray-600 mb-1">{testimonial.role}</p>
                 <p className="text-xs text-gray-500">{testimonial.location}</p>
               </div>
@@ -511,9 +491,7 @@ const Testimonials = () => {
 
         <div className="text-center mt-16">
           <div className="bg-gray-50 p-8 rounded-lg max-w-4xl mx-auto">
-            <h3 className="text-2xl font-light mb-4">
-              Join Our Mission for Educational Equity
-            </h3>
+            <h3>Join Our Mission for Educational Equity</h3>
             <p className="text-gray-600 mb-6">
               Be part of the free AI-powered education revolution that's helping
               students achieve their full potential, regardless of their

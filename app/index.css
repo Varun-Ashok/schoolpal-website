@@ -63,18 +63,23 @@ p {
   margin-block: 1em;
 }
 h1 {
-  margin-block: 0.67em;
-
-  &.title {
-    font-size: 3.5em;
-    font-weight: normal;
-  }
+  font-size: 2.5rem;
+  margin-block: 1.625rem;
 }
 h2 {
-  margin-block: 0.83em;
+  font-size: 2rem;
+  margin-block-start: 1.5em;
+  margin-block-end: 1em;
 }
 h3 {
-  margin-block: 1em;
+  font-size: 1.5rem;
+  margin-block-start: 1.5em;
+  margin-block-end: 0.5em;
+}
+h4 {
+  font-size: 1.25rem;
+  margin-block-start: 1em;
+  margin-block-end: 0.5em;
 }
 
 button,
@@ -176,13 +181,13 @@ ol {
   margin-block: 1em;
 }
 
-hgroup h1 {
+hgroup > :is(h1, h2, h3, h4, h5, h6) {
   margin-block-end: 0.5em;
 }
 
 hgroup p {
   margin-block: 0.5em;
-  /* font-weight: bold; */
+  color: var(--text-soft);
   font-size: 1.25em;
 }
 
