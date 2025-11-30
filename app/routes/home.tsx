@@ -130,17 +130,17 @@ function Features() {
     <section id="features" aria-labelledby="features-heading">
       <hgroup>
         <h2 id="features-heading">Why Choose Schoolpal AI?</h2>
-        <p>
-          Designed specifically for K-12 education with features that matter to
-          students, parents, and teachers.
-        </p>
       </hgroup>
+      <p style={{ textAlign: "center" }}>
+        Designed specifically for K-12 education with features that matter to
+        students, parents, and teachers.
+      </p>
 
-      <div className="features">
+      <ul className="features">
         {features.map((feature, index) => {
           const IconComponent = iconMap[feature.icon];
           return (
-            <div
+            <li
               key={feature.id}
               className="tile"
               style={{ animationDelay: `${index * 100}ms` }}
@@ -150,10 +150,10 @@ function Features() {
               </div>
               <h3>{feature.title}</h3>
               <p>{feature.description}</p>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </section>
   );
 }
@@ -170,51 +170,43 @@ function HowItWorks() {
   );
 
   return (
-    <section id="how-it-works" className="">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2>How It Works</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-            Getting started with Schoolpal AI is simple. Four easy steps to
-            transform your learning experience.
-          </p>
-        </div>
+    <section id="how-it-works" aria-labelledby="hiw-heading">
+      <hgroup>
+        <h2 id="hiw-heading">How It Works</h2>
+      </hgroup>
+      <p style={{ textAlign: "center" }}>
+        Getting started with Schoolpal AI is simple. Four easy steps to
+        transform your learning experience.
+      </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {howItWorksSteps.map((step, index) => {
-            const IconComponent = iconMap[step.icon];
-            return (
-              <div key={step.id} className="text-center group">
-                <div className="relative mb-8">
-                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-sm font-medium text-gray-600">
-                    {step.id}
-                  </div>
-                  {index < howItWorksSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gray-200 -translate-x-8"></div>
-                  )}
+      <ol className="hiw-steps">
+        {howItWorksSteps.map((step, index) => {
+          const IconComponent = iconMap[step.icon];
+          return (
+            <li key={step.id} className="group">
+              <div>
+                <div className="inverted scale-background-on-hover step-icon-wrap">
+                  <IconComponent size="2rem" />
                 </div>
-                <h3>{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {step.description}
-                </p>
+                <div className="step-num">{step.id}</div>
+                {index < howItWorksSteps.length - 1 && (
+                  <div className="step-connect"></div>
+                )}
               </div>
-            );
-          })}
-        </div>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </li>
+          );
+        })}
+      </ol>
 
-        <div className="text-center mt-16">
-          <div className="bg-gray-50 p-8 rounded-lg max-w-4xl mx-auto">
-            <h3>Ready to See It in Action?</h3>
-            <p className="text-gray-600 mb-6">
-              Experience how Schoolpal AI transforms traditional studying into
-              engaging, interactive learning sessions.
-            </p>
-            <Button className="var-inverted">Request a Demo</Button>
-          </div>
-        </div>
+      <div className="ready-to-see">
+        <h3>Ready to See It in Action?</h3>
+        <p>
+          Experience how Schoolpal AI transforms traditional studying into
+          engaging, interactive learning sessions.
+        </p>
+        <Button className="inverted">Request a Demo</Button>
       </div>
     </section>
   );
