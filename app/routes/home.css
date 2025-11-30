@@ -1,19 +1,5 @@
-main.main-home {
-  --alt-bg: var(--surface);
-}
-
-main.main-home > section:nth-of-type(even) {
-  background-color: var(--alt-bg);
-  /* background-color: var(--background-color); */
-  /* --surface: var(--background-color); */
-
-  /* & > * {
-    --surface: light-dark(
-      var(--light-background-color),
-      var(--dark-background-color)
-    );
-  } */
-}
+/* main.main-home {
+} */
 
 main.main-home > section {
   /* padding-top: 1.5rem; */
@@ -23,6 +9,8 @@ main.main-home > section {
 
   max-width: 80rem;
   display: flow-root;
+
+  background-color: var(--background-color);
 
   hgroup {
     text-align: center;
@@ -100,7 +88,7 @@ main.main-home .benefits {
     width: 3rem;
     height: 3rem;
 
-    background-color: var(--surface);
+    background-color: var(--background-color);
     color: var(--text);
 
     transition-property: color, background-color;
@@ -126,7 +114,7 @@ main.main-home .benefits {
 }
 
 .features .tile {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   transition:
     box-shadow 500ms,
     transform 500ms;

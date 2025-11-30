@@ -37,18 +37,18 @@
   --inv-text-soft: var(--light-text-soft);
 
   /* tw gray-800 */
-  --dark-background-color: var(--tw-gray-800);
-  --light-background-color: #fff;
+  --dark-background-color: var(--tw-gray-900);
+  --light-background-color: var(--tw-gray-50);
   --background-color: var(--dark-background-color);
   --inv-background-color: var(--light-background-color);
 
   color: var(--text);
   background-color: var(--background-color);
 
-  /* tw gray-900 */
-  --dark-surface: var(--tw-gray-900);
+  /* tw gray-800 */
+  --dark-surface: var(--tw-gray-800);
   /* tw gray-50 */
-  --light-surface: var(--tw-gray-50);
+  --light-surface: var(--tw-white);
   --surface: var(--dark-surface);
   --inv-surface: var(--light-surface);
 }
