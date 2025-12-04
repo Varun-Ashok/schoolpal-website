@@ -53,14 +53,13 @@ function Hero({ ids }: { ids: Record<string, string> }) {
             Offline Tutor
           </span>
         </h1>
-
-        {/* Subtitle */}
-        <p>
-          Free AI-powered conversation-based learning for K-12 students. Works
-          offline, stays focused on your curriculum, and helps build strong
-          study skills for everyone.
-        </p>
       </hgroup>
+      {/* Subtitle */}
+      <p>
+        Free AI-powered conversation-based learning for K-12 students. Works
+        offline, stays focused on your curriculum, and helps build strong study
+        skills for everyone.
+      </p>
 
       {/* Key Benefits */}
       <div className="benefits">
@@ -101,7 +100,7 @@ function Hero({ ids }: { ids: Record<string, string> }) {
       </div>
 
       {/* Free Access Highlight */}
-      <div className="home-section-wrap">
+      <div className="home-section-wrapup">
         <p>100% Free for All Students</p>
         <div>
           <span style={{ fontSize: "2rem" }}>No Cost</span>
@@ -131,12 +130,12 @@ function Features() {
       <hgroup>
         <h2 id="features-heading">Why Choose Schoolpal AI?</h2>
       </hgroup>
-      <p style={{ textAlign: "center" }}>
+      <p>
         Designed specifically for K-12 education with features that matter to
         students, parents, and teachers.
       </p>
 
-      <ul className="features">
+      <ul className="features hover-lift">
         {features.map((feature, index) => {
           const IconComponent = iconMap[feature.icon];
           return (
@@ -174,7 +173,7 @@ function HowItWorks() {
       <hgroup>
         <h2 id="hiw-heading">How It Works</h2>
       </hgroup>
-      <p style={{ textAlign: "center" }}>
+      <p>
         Getting started with Schoolpal AI is simple. Four easy steps to
         transform your learning experience.
       </p>
@@ -200,7 +199,7 @@ function HowItWorks() {
         })}
       </ol>
 
-      <div className="home-section-wrap">
+      <div className="home-section-wrapup">
         <h3>Ready to See It in Action?</h3>
         <p>
           Experience how Schoolpal AI transforms traditional studying into
@@ -219,7 +218,7 @@ function Pricing() {
         <h2 id="pricing-heading">Pricing</h2>
         <p>Free for Everyone</p>
       </hgroup>
-      <p style={{ textAlign: "center" }}>
+      <p>
         Education should be accessible to all. That's why Schoolpal AI is
         completely free, forever.
       </p>
@@ -268,7 +267,7 @@ function Pricing() {
         ))}
       </ul>
 
-      <div className="home-section-wrap">
+      <div className="home-section-wrapup">
         <p>Want to support our mission to democratize education?</p>
         <Button>Learn about donations and partnerships</Button>
       </div>
@@ -276,68 +275,63 @@ function Pricing() {
   );
 }
 
-const Testimonials = () => {
+function Testimonials() {
   return (
-    <section id="testimonials" className="">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2>What Students & Teachers Say</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-            Real feedback from students, teachers, and parents who are already
-            using Schoolpal AI.
-          </p>
-        </div>
+    <section id="testimonials" aria-labelledby="testimonials-heading">
+      <hgroup>
+        <h2 id="testimonials-heading">What Students & Teachers Say</h2>
+      </hgroup>
+      <p>
+        Real feedback from students, teachers, and parents who are already using
+        Schoolpal AI.
+      </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={testimonial.id}
-              className="bg-gray-50 p-8 rounded-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group relative"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <Quote className="w-8 h-8 text-gray-300 mb-4" />
+      <ul className="testimonials-list">
+        {testimonials.map((testimonial, index) => (
+          <li
+            key={testimonial.id}
+            className="tile hover-lift"
+            style={{ animationDelay: `${index * 100}ms` }}
+          >
+            <figure>
+              <Quote />
 
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "{testimonial.content}"
-              </p>
+              <blockquote>
+                <p>"{testimonial.content}"</p>
 
-              <div className="flex items-center mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-4 h-4 text-yellow-400 fill-current"
-                  />
-                ))}
-              </div>
+                <div className="test-rating">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="test-star" />
+                  ))}
+                </div>
+              </blockquote>
 
-              <div className="border-t border-gray-200 pt-4">
+              <figcaption>
                 <p>{testimonial.name}</p>
-                <p className="text-sm text-gray-600 mb-1">{testimonial.role}</p>
-                <p className="text-xs text-gray-500">{testimonial.location}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+                <p>{testimonial.role}</p>
+                <p>{testimonial.location}</p>
+              </figcaption>
+            </figure>
+          </li>
+        ))}
+      </ul>
 
-        <div className="text-center mt-16">
-          <div className="bg-gray-50 p-8 rounded-lg max-w-4xl mx-auto">
-            <h3>Join Our Mission for Educational Equity</h3>
-            <p className="text-gray-600 mb-6">
-              Be part of the free AI-powered education revolution that's helping
-              students achieve their full potential, regardless of their
-              economic background.
-            </p>
-            <div className="flex justify-center space-x-8 text-sm text-gray-500">
-              <span>🎓 10,000+ Students</span>
-              <span>🏫 500+ Schools</span>
-              <span>💝 100% Free</span>
-            </div>
-          </div>
-        </div>
+      <div className="home-section-wrapup tile">
+        <h3>Join Our Mission for Educational Equity</h3>
+        <p>
+          Be part of the free AI-powered education revolution that's helping
+          students achieve their full potential, regardless of their economic
+          background.
+        </p>
+        <ul className="tests-stats">
+          <li>🎓 10,000+ Students</li>
+          <li>🏫 500+ Schools</li>
+          <li>💝 100% Free</li>
+        </ul>
       </div>
     </section>
   );
-};
+}
 
 function Contact({ ids }: { ids: Record<string, string> }) {
   const [formData, setFormData] = useState({

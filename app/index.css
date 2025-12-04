@@ -345,3 +345,17 @@ svg.lucide {
     "action";
   grid-template-rows: min(auto, 2fr) 3fr auto;
 }
+
+:is(.tile, .card).hover-lift {
+  transition:
+    box-shadow 500ms,
+    transform 500ms;
+  will-change: box-shadow, transform;
+
+  &:hover {
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-0.5rem);
+  }
+}

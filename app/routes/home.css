@@ -5,16 +5,25 @@ main.main-home > section {
   padding-right: 1.5rem;
 
   max-width: 80rem;
-  display: flow-root;
+  margin-left: auto;
+  margin-right: auto;
+  /* display: flow-root; */
 
   background-color: var(--background-color);
 
   hgroup {
     text-align: center;
   }
+
+  p:first-of-type {
+    text-align: center;
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
-.home-section-wrap {
+.home-section-wrapup {
   text-align: center;
   margin-top: 2rem;
   color: var(--text-soft);
@@ -113,20 +122,9 @@ main.main-home .benefits {
   }
 }
 
-.features .tile {
-  /* background-color: var(--background-color); */
-  transition:
-    box-shadow 500ms,
-    transform 500ms;
-  will-change: box-shadow, transform;
-
-  &:hover {
-    box-shadow:
-      0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    transform: translateY(-0.5rem);
-  }
-}
+/* .features .tile {
+  background-color: var(--background-color);
+} */
 
 ol.hiw-steps {
   margin-block: 2rem;
@@ -278,6 +276,77 @@ li.plan {
   &:not(.popular) {
     border-width: 1px;
     border-color: var(--text-soft);
+  }
+}
+
+ul.testimonials-list {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+
+  list-style: none;
+  padding: 0;
+
+  @media (min-width: 48rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (min-width: 64rem) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+ul.testimonials-list .tile {
+  .lucide-quote {
+    margin-bottom: 1rem;
+    width: 2rem;
+    height: 2rem;
+    color: var(--text-soft);
+  }
+  blockquote {
+    margin-block: 1rem;
+  }
+  .test-rating {
+    display: flex;
+    margin-block: 1rem;
+    align-items: center;
+
+    .lucide-star {
+      width: 1rem;
+      height: 1rem;
+
+      color: light-dark(var(--tw-yellow-400), var(--tw-yellow-300));
+      fill: currentColor;
+    }
+  }
+  figcaption {
+    padding-top: 1rem;
+    border-style: solid;
+    border-width: 0;
+    border-top-width: 1px;
+    border-color: var(--inv-surface);
+
+    p:not(:first-of-type) {
+      color: var(--text-soft);
+      font-size: smaller;
+    }
+  }
+}
+
+section#testimonials {
+  .home-section-wrapup {
+    max-width: 56rem;
+    margin-inline: auto;
+    h3 {
+      margin-top: 0.5rem;
+    }
+    .tests-stats {
+      display: flex;
+      justify-content: center;
+      color: var(--text-soft);
+      gap: 0.75rem;
+      list-style: none;
+      padding: 0;
+    }
   }
 }
 
