@@ -361,125 +361,109 @@ function Contact({ ids }: { ids: Record<string, string> }) {
   };
 
   return (
-    <section id={ids["contactId"]} className="bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2>Join Our Community</h2>
+    <section id="contact" aria-labelledby="contact-heading">
+      <hgroup id="contact-heading">
+        <h2>Join Our Community</h2>
+      </hgroup>
+      <p>
+        Be part of the movement to make quality AI education accessible to every
+        student, everywhere.
+      </p>
+
+      <div className="contact-flex">
+        {/* Contact Information */}
+        <section
+          className="join-mission"
+          aria-labelledby="join-mission-heading"
+        >
+          <h3 id="join-mission-heading">Join Our Mission</h3>
           <p>
-            Be part of the movement to make quality AI education accessible to
-            every student, everywhere.
+            Schoolpal AI is a community-driven initiative focused on
+            democratizing education through free AI tutoring. We believe every
+            student deserves access to quality learning tools, regardless of
+            their economic background.
           </p>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact Information */}
-          <div>
-            <h3>Join Our Mission</h3>
+          <h4>Perfect for:</h4>
+          <ul>
+            <li>Teachers looking to enhance classroom learning</li>
+            <li>Parents wanting better study support at home</li>
+            <li>Schools seeking free AI education tools</li>
+            <li>NGOs working with underprivileged students</li>
+            <li>Organizations supporting educational equity</li>
+          </ul>
 
-            <div className="space-y-6">
-              <p className="text-gray-600 leading-relaxed">
-                Schoolpal AI is a community-driven initiative focused on
-                democratizing education through free AI tutoring. We believe
-                every student deserves access to quality learning tools,
-                regardless of their economic background.
-              </p>
-            </div>
+          <h4>How to Get Involved:</h4>
+          <ul>
+            <li>Download and try Schoolpal AI in your classroom</li>
+            <li>Share feedback to help us improve</li>
+            <li>Spread the word about free AI education</li>
+            <li>Partner with us for wider implementation</li>
+          </ul>
+        </section>
 
-            <div className="mt-12">
-              <h4>Perfect for:</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>Teachers looking to enhance classroom learning</li>
-                <li>Parents wanting better study support at home</li>
-                <li>Schools seeking free AI education tools</li>
-                <li>NGOs working with underprivileged students</li>
-                <li>Organizations supporting educational equity</li>
-              </ul>
-            </div>
+        {/* Contact Form */}
+        <section
+          className="contact-form-wrapper"
+          aria-labelledby="contact-form-heading"
+        >
+          <h3 id="contact-form-heading">Get Updates & Resources</h3>
 
-            <div className="mt-12">
-              <h4>How to Get Involved:</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>Download and try Schoolpal AI in your classroom</li>
-                <li>Share feedback to help us improve</li>
-                <li>Spread the word about free AI education</li>
-                <li>Partner with us for wider implementation</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="bg-white p-8 rounded-lg shadow-lg">
-            <h3>Get Updates & Resources</h3>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full"
-                    placeholder="Your full name"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Organization
-                </label>
+          <form onSubmit={handleSubmit}>
+            <div id="contact-form-first-row">
+              <label>
+                Name *
                 <input
                   type="text"
-                  name="organization"
-                  value={formData.organization}
-                  onChange={handleChange}
-                  className="w-full"
-                  placeholder="School, NGO, or Organization"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  How can we help? *
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
+                  name="name"
+                  value={formData.name}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="w-full"
-                  placeholder="Tell us about your interest in Schoolpal AI, implementation needs, or partnership opportunities..."
+                  placeholder="Your full name"
                 />
-              </div>
+              </label>
 
-              <Button type="submit" className="inverted">
-                <Send className="w-4 h-4 mr-2" />
-                Join Our Community
-              </Button>
-            </form>
-          </div>
-        </div>
+              <label>
+                Email *
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="your.email@example.com"
+                />
+              </label>
+            </div>
+            <label>
+              Organization
+              <input
+                type="text"
+                name="organization"
+                value={formData.organization}
+                onChange={handleChange}
+                placeholder="School, NGO, or Organization"
+              />
+            </label>
+
+            <label>
+              How can we help? *
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={5}
+                placeholder="Tell us about your interest in Schoolpal AI, implementation needs, or partnership opportunities..."
+              />
+            </label>
+
+            <Button type="submit" className="inverted">
+              <Send size="1rem" style={{ marginRight: "0.5rem" }} />
+              Join Our Community
+            </Button>
+          </form>
+        </section>
       </div>
     </section>
   );

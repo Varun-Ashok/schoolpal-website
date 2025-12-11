@@ -15,11 +15,12 @@ main.main-home > section {
     text-align: center;
   }
 
-  p:first-of-type {
+  hgroup + p {
     text-align: center;
     max-width: 64rem;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2rem;
   }
 }
 
@@ -271,6 +272,9 @@ li.plan {
   &.popular {
     border-width: 2px;
     border-color: light-dark(var(--tw-black), var(--tw-white));
+    button {
+      background-color: var(--inv-surface);
+    }
   }
 
   &:not(.popular) {
@@ -346,6 +350,52 @@ section#testimonials {
       gap: 0.75rem;
       list-style: none;
       padding: 0;
+    }
+  }
+}
+
+.contact-flex {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2rem;
+
+  & > * {
+    flex-basis: 24rem;
+    flex-grow: 1;
+  }
+
+  .contact-form-wrapper {
+    background-color: var(--surface);
+    border-radius: 0.5rem;
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 0 1.5rem 1.5rem;
+    align-self: flex-start;
+  }
+}
+
+.contact-form-wrapper > form {
+  input,
+  textarea {
+    width: 100%;
+  }
+
+  label {
+    display: block;
+    input {
+      margin-block: 0.5rem;
+    }
+  }
+
+  #contact-form-first-row {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+
+    & > label {
+      flex-basis: 12rem;
+      flex-grow: 1;
     }
   }
 }
