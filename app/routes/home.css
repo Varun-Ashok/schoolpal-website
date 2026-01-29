@@ -62,6 +62,8 @@ main.main-home > section#hero {
     width: 0.8lh;
     height: 0.8lh;
     vertical-align: middle;
+    margin-inline-start: 0.25em;
+    margin-inline-end: 0.25em;
   }
 }
 
